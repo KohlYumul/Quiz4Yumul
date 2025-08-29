@@ -10,7 +10,9 @@ from .models import Job, JobApplicant
 # Create your views here.
 
 class JobCreateView(CreateView):
-    pass
+    model = Job
+    template_name = 'jobs/job_create.html'
+    fields = ['title', 'description']
 def job_list_view(request):
     jobs = Job.objects.all()
     query = request.GET.get('q', None)
